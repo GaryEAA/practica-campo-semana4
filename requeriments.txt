@@ -1,0 +1,2 @@
+# Sin dependencias externas.
+# tkinter viene incluido en Python 3 estándar.
