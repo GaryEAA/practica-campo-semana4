@@ -12,18 +12,46 @@ def lanzar_algoritmo(nombre_archivo):
     ruta = os.path.join(ALGORITMOS_DIR, nombre_archivo)
     subprocess.Popen([sys.executable, ruta])
 
-
-# TODO: construir la ventana del menú principal con tkinter
-#       - Botón → Torres de Hanoi    (llama a lanzar_algoritmo("torres_hanoi.py"))
-#       - Botón → Salto del Caballo  (llama a lanzar_algoritmo("salto_caballo.py"))
-
+# --------------------------------------------------
+# MENÚ PRINCIPAL
+# --------------------------------------------------
 
 if __name__ == "__main__":
     root = tk.Tk()
     root.title("Práctica de Campo – Semana 4")
     root.geometry("500x300")
+    root.configure(bg="#E8F0FE")
 
-    # TODO: reemplazar este label por el menú completo
-    tk.Label(root, text="Menú Principal – por implementar").pack(expand=True)
+    titulo = tk.Label(
+        root,
+        text="ALGORITMOS DE BACKTRACKING",
+        font=("Arial", 16, "bold"),
+        bg="#E8F0FE"
+    )
+    titulo.pack(pady=30)
+
+    btn_hanoi = tk.Button(
+        root,
+        text="Torres de Hanoi",
+        font=("Arial", 12),
+        width=20,
+        height=2,
+        bg="#4CAF50",
+        fg="white",
+        command=lambda: lanzar_algoritmo("torres_hanoi.py")
+    )
+    btn_hanoi.pack(pady=10)
+
+    btn_caballo = tk.Button(
+        root,
+        text="Salto del Caballo",
+        font=("Arial", 12),
+        width=20,
+        height=2,
+        bg="#2196F3",
+        fg="white",
+        command=lambda: lanzar_algoritmo("salto_caballo.py")
+    )
+    btn_caballo.pack(pady=10)
 
     root.mainloop()
